@@ -13,11 +13,8 @@
     <div class="produto">
 
         <h1>{{ nomeProduto }}</h1>
-
         <p>Preço: {{ precoFormatado }}</p>
-
         <p>Estoque: {{ estoque }} unidades</p>
-
         <label>Quantidade: </label>
 
         <input
@@ -25,9 +22,11 @@
             v-model.number="quantidade"
             min="1"
         >
-
         <p>
-            Total:
+            
+        </p>
+        <p>
+            Totaol:
             <strong>{{ totalFormatado }}</strong>
         </p>
 
