@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Projeto Vue.js</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    
+<div id="app">
+    <div class="produto">
+
+        <h1>{{ nomeProduto }}</h1>
+
+        <p>Preço: {{ precoFormatado }}</p>
+
+        <p>Estoque: {{ estoque }} unidades</p>
+
+        <label>Quantidade: </label>
+
+        <input
+            type="number"
+            v-model.number="quantidade"
+            min="1"
+        >
+
+        <p>
+            Total:
+            <strong>{{ totalFormatado }}</strong>
+        </p>
+
+        <button @click="aplicarDesconto">
+            {{ descontoAtivo ? 'Remover desconto' : 'Aplicar desconto'}}
+        </button>
+
+        <button @click="comprarProduto">
+            Comprar
+        </button>
+
+        <p v-if="descontoAtivo">
+            Desconto de 10% aplicado.
+        </p>
+
+        <p v-if="mensagemCompra">
+            {{ mensagemCompra}}
+        </p>
+
+        <p v-show="quantidade > estoque" class="aviso">
+            Quantidade maior que o estoque disponível.
+        </p>
+    </div>
+
+</div>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
